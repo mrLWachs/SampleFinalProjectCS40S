@@ -47,7 +47,7 @@ public class LoginController
         this.loginUI      = loginUI;
         this.nameText     = nameText;
         this.passwordText = passwordText;
-        this.list         = list;;
+        this.list         = list;
                 
         // Apply some view UI property changes
         loginUI.setResizable(false);         // The frame (form) cannot be sized

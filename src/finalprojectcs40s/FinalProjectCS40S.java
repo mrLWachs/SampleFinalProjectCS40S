@@ -19,7 +19,7 @@ public class FinalProjectCS40S {
      * 
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         LoginUI loginUI = new LoginUI();
     }
 
