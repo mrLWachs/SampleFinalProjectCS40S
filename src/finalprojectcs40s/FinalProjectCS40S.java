@@ -6,7 +6,7 @@ import view.LoginUI;
 
 /** 
  * FinalProjectCS40S.java - an example of a final project for the Computer 
- Science 30S course
+ * Science 40S course
  *
  * @author Mr. Wachs 
  * @since 25-Jan-2022 

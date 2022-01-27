@@ -15,7 +15,7 @@ import collections.LinkedList;
 public class Globals 
 {
 
-    // Makes a global varaible across all classes in this project and the word 
+    // Makes a global variable across all classes in this project and the word 
     // "static" which essentially means "shared"
     public static LinkedList<User> users = new LinkedList<>();
     

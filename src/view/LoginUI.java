@@ -2,11 +2,8 @@
 /** Required package class namespace */
 package view;
 
+/** Required import statements */
 import controllers.LoginController;
-import data.Globals;
-import data.User;
-import tools.Dialogs;
-import tools.Numbers;
 
 /**
  * LoginUI.java - the login in user interface (UI) - a frame (form) user 
@@ -17,7 +14,7 @@ import tools.Numbers;
  */
 public class LoginUI extends javax.swing.JFrame {
 
-    
+    // A reference to the controller for this view
     private LoginController controller;
     
     /**
@@ -26,6 +23,8 @@ public class LoginUI extends javax.swing.JFrame {
     public LoginUI() {
         initComponents();
         
+        // Code after the designer written call to the method that builds 
+        // the design
         controller = new LoginController(this,jTextField1,jTextField2,list1);
     }
 
@@ -156,7 +155,6 @@ public class LoginUI extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         controller.login();
     }//GEN-LAST:event_jButton3ActionPerformed
-
 
     //##########################################################################
     // NOTE: the NetBeans visual designer adds the code below for each 
