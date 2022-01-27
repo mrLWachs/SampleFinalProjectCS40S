@@ -2,6 +2,7 @@
 /** Required package class namespace */
 package finalprojectcs40s;
 
+/** Required import statements */
 import view.LoginUI;
 
 /** 

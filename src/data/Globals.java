@@ -2,6 +2,7 @@
 /** Required package class namespace */
 package data;
 
+/** Required import statements */
 import collections.LinkedList;
 
  
@@ -18,7 +19,5 @@ public class Globals
     // Makes a global variable across all classes in this project and the word 
     // "static" which essentially means "shared"
     public static LinkedList<User> users = new LinkedList<>();
-    
-    
     
 }
