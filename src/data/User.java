@@ -19,7 +19,7 @@ public class User extends Person
      * Class constructor sets class properties
      * 
      * @param name the name of this user
-     * @param password the passwrod for this user
+     * @param password the password for this user
      */
     public User(String name, String password) {
         this.password = password;
