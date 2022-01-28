@@ -3,11 +3,13 @@
 package controllers;
 
 /** Required import statements */
+import collections.LinkedList;
 import data.Globals;
 import data.User;
 import java.awt.List;
 import javax.swing.JTextField;
 import tools.Dialogs;
+import tools.FileHandler;
 import tools.Numbers;
 import view.LoginUI;
 
@@ -29,6 +31,10 @@ public class LoginController
     private JTextField passwordText;
     private List       list;
     
+    // File handling objects
+    private FileHandler fileHandler1 = new FileHandler(Globals.FILE_NAME1);
+    private FileHandler fileHandler2 = new FileHandler(Globals.FILE_NAME2);
+    
     
     /**
      * Default class constructor, sets class properties
@@ -48,7 +54,8 @@ public class LoginController
         this.nameText     = nameText;
         this.passwordText = passwordText;
         this.list         = list;
-                
+        // Run the opening to load in names from the data files
+        opening();        
         // Apply some view UI property changes
         loginUI.setResizable(false);         // The frame (form) cannot be sized
         loginUI.setLocationRelativeTo(null); // Center the frame on the screen
@@ -155,6 +162,50 @@ public class LoginController
         // After the loop, no user was found to be the same, so the user is 
         // not in the database (the collection)
         return false;
+    }
+
+    /**
+     * when the view UI is opening it reads the users from the permanent files
+     */
+    private void opening() {
+        // Create dynamic lists for all names and passwords by reading them 
+        // out of the data files
+        LinkedList<String> names     = fileHandler1.read();
+        LinkedList<String> passwords = fileHandler2.read(); 
+        // Error check if the files were empty (or not yet made)
+        if (names == null) return;        
+        // Traverse through the lists
+        for (int i = 0; i < names.size(); i++) {
+            // Extract the name and password from each list
+            String name     = names.get(i);
+            String password = passwords.get(i);
+            // Build a User object
+            User user = new User(name, password);
+            // Add to the collection
+            Globals.users.add(user);
+            // Add to the view UI listbox
+            list.add(user.toString());
+        }         
+    }
+    
+    /**
+     * When the view (UI) is closing it saves all the users (in the LinkedList)
+     * to the permanent files
+     */
+    public void closing() {
+        // Create dynamic lists for all names and passwords
+        LinkedList<String> names     = new LinkedList<>();
+        LinkedList<String> passwords = new LinkedList<>();
+        // Traverse through all the users in the list
+        for (int i = 0; i < Globals.users.size(); i++) {
+            // Get the name from the users and add to the names list
+            names.add(Globals.users.get(i).name);
+            // Do the same with the passwords
+            passwords.add(Globals.users.get(i).getPassword());
+        }
+        // Now write those lists to our data files
+        fileHandler1.write(names);
+        fileHandler2.write(passwords);
     }
     
 }

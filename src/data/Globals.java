@@ -20,4 +20,11 @@ public class Globals
     // "static" which essentially means "shared"
     public static LinkedList<User> users = new LinkedList<>();
     
+    // Constants for saving to a permanent data file
+    private static String FIRST_NAME = "/data/";
+    private static String LAST_NAME  = ".txt";
+    
+    public static String FILE_NAME1 = FIRST_NAME + "names"     + LAST_NAME;
+    public static String FILE_NAME2 = FIRST_NAME + "passwords" + LAST_NAME;      
+    
 }

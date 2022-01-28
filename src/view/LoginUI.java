@@ -56,6 +56,11 @@ public class LoginUI extends javax.swing.JFrame {
         list1 = new java.awt.List();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Name:");
 
@@ -155,6 +160,10 @@ public class LoginUI extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         controller.login();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        controller.closing();
+    }//GEN-LAST:event_formWindowClosing
 
     //##########################################################################
     // NOTE: the NetBeans visual designer adds the code below for each 
